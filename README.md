@@ -47,8 +47,8 @@ MaRGE is designed for MRI researchers, developers, and students working with the
 Before installing MaRGE, make sure your system meets the following minimum requirements. The software is primarily tested and supported on Ubuntu, but other platforms may work with some limitations.
 
 1. **Ubuntu 22.04.5 LTS** with **Python 3.10**
-2. **Windows 10** with **Python 3.13**
-3. **Windows 11** with **Python 3.13**
+2. **Windows 10** with **Python 3.13** and Git Bash
+3. **Windows 11** with **Python 3.13** and Git Bash
 3. **Internet connection**
 
 Without a configured MaRCoS + Red Pitaya setup, MaRGE can still be launched, but only **Trial Mode** will be available (no hardware acquisition).
@@ -118,18 +118,49 @@ Then, add the current folder (MaRGE) to Python's module search path:
 * Ubuntu
     ```bash
     cd marge
-    python main.py
+    python3 main.py
     ```
 * Windows
     ```bash
     cd marge
-    python3 main.py
+    python main.py
     ```
 
-### Notes
+5. Configure your session and hardware following this [link](https://github.com/josalggui/MaRGE/wiki/Hardware-configuration-new).
+
+### Note 1
 When you execute `main.py` additional folders are created to save results, configurations, or calibrations.
 These folders are created in the directory where you run `main.py`.
 It is highly recommended to run `main.py` from `MaRGE/marge` folder.
+
+### Note 2
+The commands indicated for Windows work fine for Git Bash. If you use PowerShell, the commands may be different.
+
+### Note 3
+On Ubuntu, some Qt-based applications may fail with an error similar to:
+
+qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+
+If this happens, install the required system libraries:
+
+```bash
+sudo apt update
+sudo apt install -y \
+  libxcb-cursor0 \
+  libxcb-xinerama0 \
+  libxcb-icccm4 \
+  libxcb-image0 \
+  libxcb-keysyms1 \
+  libxcb-render-util0 \
+  libxkbcommon-x11-0 \
+  libxcb-randr0 \
+  libxcb-shape0 \
+  libxcb-xfixes0 \
+  libgl1 \
+  libegl1
+```
+
+After installing these packages, run the application again.
 
 ---
 
