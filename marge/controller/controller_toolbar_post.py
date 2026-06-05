@@ -59,7 +59,12 @@ class ToolBarControllerPost(ToolBarWidgetPost):
         self.action_convert.triggered.connect(self.convert)
         self.acq = ismrmrd.Acquisition()
         self.img = ismrmrd.Image()
-        self.header= ismrmrd.xsd.ismrmrdHeader() 
+       
+        # Experimental Conditions field
+        exp = ismrmrd.xsd.experimentalConditionsType(H1resonanceFrequency_Hz=hw.larmorFreq) 
+        magneticFieldStrength = hw.larmorFreq*1e6/hw.gammaB
+
+        self.header= ismrmrd.xsd.ismrmrdHeader(experimentalConditions=exp) 
         self.current_slice = 0
         
         
@@ -576,12 +581,12 @@ class ToolBarControllerPost(ToolBarWidgetPost):
         phase_dir[axesOrientation_list.index(1)] = 1
         slice_dir[axesOrientation_list.index(2)] = 1
         
-        # Experimental Conditions field
-        exp = ismrmrd.xsd.experimentalConditionsType() 
-        magneticFieldStrength = hw.larmorFreq*1e6/hw.gammaB
-        exp.H1resonanceFrequency_Hz = hw.larmorFreq
+        # # Experimental Conditions field
+        # exp = ismrmrd.xsd.experimentalConditionsType() 
+        # magneticFieldStrength = hw.larmorFreq*1e6/hw.gammaB
+        # exp.H1resonanceFrequency_Hz = hw.larmorFreq
 
-        self.header.experimentalConditions = exp 
+        # self.header.experimentalConditions = exp 
 
         # Acquisition System Information field
         sys = ismrmrd.xsd.acquisitionSystemInformationType() 
