@@ -139,8 +139,7 @@ class MarcosController(MarcosToolBar):
     def marcos_install(self):
         try:
             subprocess.run([
-                "gnome-terminal", "--",
-                "bash", "-c", f"sudo ./marcos_install.sh; exec bash"
+                hw.bash_path, "--", "bash", "-c", f"sudo ./marcos_install.sh; exec bash"
             ])
         except:
             print("ERROR: Something went wrong.")

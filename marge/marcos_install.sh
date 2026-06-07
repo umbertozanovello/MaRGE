@@ -36,7 +36,7 @@ echo "Version 2.1"
 sleep 0.1
 echo "Date: 2025.08.13"
 sleep 0.1
-echo "Tested with Ubuntu 22.04.5 LTS"
+echo "Tested with Ubuntu 22.04.5 LTS and Ubuntu 26.04 LTS"
 sleep 0.1
 echo "============================================================"
 echo ""
