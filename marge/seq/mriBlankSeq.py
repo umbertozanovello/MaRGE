@@ -1696,6 +1696,15 @@ class MRIBLANKSEQ:
 
         # Add instructions to server
         if not self.demo:
+            # TODO Multiply here by the matrix?
+            """
+            g = np.vstack((self.flo_dict['g0'][1], self.flo_dict['g1'][1], self.flo_dict['g2'][1]))
+            g_conv = g * hw.gFactor[:,None]
+            g_conv = (hw.gM @ g_conv) / hw.gpa_g / hw.gBoard_gain
+            self.flo_dict['g0'][1] = g_conv[0,:]
+            self.flo_dict['g1'][1] = g_conv[1,:]
+            self.flo_dict['g2'][1] = g_conv[2,:]
+            """
             self.expt.add_flodict({'grad_vx': (self.flo_dict['g0'][0], self.flo_dict['g0'][1]),
                                    'grad_vy': (self.flo_dict['g1'][0], self.flo_dict['g1'][1]),
                                    'grad_vz': (self.flo_dict['g2'][0], self.flo_dict['g2'][1]),

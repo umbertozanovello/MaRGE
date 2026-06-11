@@ -13,6 +13,9 @@ import numpy as np
 # Z axis: 35 mT/m/o.u., 0.7 mT/m/A, 3.5 mT/m/V
 
 gFactor = np.array([0.0506, 0.0529, 0.0513]) # (X, Y, Z) in T/m/o.u.
+gBoard_gain = 10 # V/o.u
+gpa_g = 1.5 # A/V: transconductance of the gradient power amplifier
+gM = np.array([-0.19,1.317,1.507],[0.092,-1.396,1.572],[2.351,0.102,-0.144])*1e3 # A/(T/m): from A4IM GC characterization
 max_grad = 40  # mT/m
 max_slew_rate = 150e-3  # mT/m/ms
 grad_raster_time = 25e-6  # s
