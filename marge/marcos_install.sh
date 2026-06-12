@@ -236,7 +236,7 @@ if [[ "$ETH_CONFIG" =~ ^[Yy]$ ]]; then
     echo " "
 
     #*********************************************************************#
-    echo "[7/10] Modifying SD card network configuration..."
+    echo "[7/10] Modifying network configuration of the Host Computer..."
     read -p "❓ Write the static IP address for your client computer: " CLIENT_IP
     IP_PREFIX=$(echo "$CLIENT_IP" | cut -d'.' -f1,2)
     GATEWAY="$IP_PREFIX.1.1"
